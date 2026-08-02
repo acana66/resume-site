@@ -10,12 +10,16 @@ export default function GuestbookSection() {
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  const [mirrorMode, setMirrorMode] = useState(false);
 
   const refresh = useCallback(async () => {
     try {
       const res = await fetch("/api/guestbook");
+      if (!res.ok) throw new Error("api down");
       const data = await res.json();
       setItems(Array.isArray(data) ? data : []);
+    } catch {
+      setMirrorMode(true); // 接口不可用（如国内静态镜像版）
     } finally {
       setLoading(false);
     }
@@ -61,6 +65,20 @@ export default function GuestbookSection() {
     } finally {
       setSending(false);
     }
+  }
+
+  // 国内镜像版提示
+  if (mirrorMode) {
+    return (
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-800">
+        <p className="font-semibold mb-1">此站点为国内镜像版</p>
+        <p>
+          留言板功能在主站提供，请访问
+          <a href="https://resume-site-ebon-six.vercel.app/guestbook" className="underline ml-1 font-medium">主站留言板</a>
+          （海外节点可访问）。
+        </p>
+      </div>
+    );
   }
 
   return (
