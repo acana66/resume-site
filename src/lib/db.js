@@ -1,12 +1,28 @@
 import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
+import os from "os";
 
-const dataDir = path.join(process.cwd(), "data");
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+// 找到可写目录存数据库：本地用 data/，云端（Vercel）用系统临时目录
+function resolveDataDir() {
+  const candidates = [];
+  if (process.env.VERCEL) candidates.push(process.env.TMPDIR || os.tmpdir());
+  candidates.push(path.join(process.cwd(), "data"), os.tmpdir());
+  for (const dir of candidates) {
+    try {
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      const testFile = path.join(dir, ".write-test");
+      fs.writeFileSync(testFile, "1");
+      fs.unlinkSync(testFile);
+      return dir;
+    } catch {
+      // 不可写，尝试下一个
+    }
+  }
+  return path.join(process.cwd(), "data");
 }
 
+const dataDir = resolveDataDir();
 const db = new Database(path.join(dataDir, "resume.db"));
 db.pragma("journal_mode = WAL");
 
