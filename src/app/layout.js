@@ -1,4 +1,5 @@
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "覃杰 · 个人简历网站",
@@ -11,12 +12,12 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen flex flex-col">
         <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
           <nav className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="/" className="font-bold text-lg text-indigo-700">
+            <Link href="/" className="font-bold text-lg text-indigo-700">
               覃杰 · 简历
-            </a>
+            </Link>
             <div className="flex gap-5 text-sm font-medium">
-              <a href="/" className="hover:text-indigo-600">首页</a>
-              <a href="/guestbook" className="hover:text-indigo-600">留言板</a>
+              <Link href="/" className="hover:text-indigo-600">首页</Link>
+              <Link href="/guestbook" className="hover:text-indigo-600">留言板</Link>
             </div>
           </nav>
         </header>

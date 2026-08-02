@@ -1,37 +1,63 @@
-# 鐟曞啯婢?璺?娑擃亙姹夌粻鈧崢鍡欑秹缁旀瑱绱檙esume-site閿?
-娑撯偓娑擃亞鏁?**AI Coding 瀹搞儱鍙块敍鍦昽dex閿?* 閸忋劍鐖ゅ鈧崣鎴犳畱娴ｆ粌鎼ч梿鍡欑秹缁旀瑱绱伴崜宥囶伂缁犫偓閸樺棗鐫嶇粈?+ 鐠佸灝顓归悾娆掆枅閺?+ 鐠佸潡妫剁紒鐔活吀閵?
-## 閹垛偓閺堫垱鐖?
-- 閸撳秶顏?& 閸氬海顏敍姝俥xt.js閿涘湏pp Router閿涘瓰avaScript閿?- 閺嶅嘲绱￠敍姝峚ilwind CSS v4
-- 閺佺増宓佹惔鎿勭窗better-sqlite3閿涘牊婀伴崷鐗堟瀮娴犺泛鐎烽敍宀勬祩鐎瑰顥婇敍?- 闁劎璁查敍姝廵rcel閿涘牆绶熸稉濠勫殠閿?
-## 閺堫剙婀存潻鎰攽
+# 覃杰 · 个人简历网站（resume-site）
+
+一个用 **AI Coding 工具（Codex）** 全栈开发的作品集网站：前端简历展示 + 访客留言板 + 访问统计。
+
+## 线上地址
+
+| 入口 | 链接 | 说明 |
+|---|---|---|
+| 主站（完整版） | https://resume-site-ebon-six.vercel.app | 简历 + 留言板 + 访问统计（海外节点） |
+| 国内镜像 | https://resume-site-1462520728.cos-website.ap-guangzhou.myqcloud.com | 国内直连免 VPN，静态版 |
+| GitHub Pages | https://acana66.github.io/resume-site | 仓库托管版，静态版 |
+
+## 技术栈
+
+- 前端 & 后端：Next.js（App Router，JavaScript）
+- 样式：Tailwind CSS v4
+- 数据库：better-sqlite3（本地文件型，零安装）
+- 部署：Vercel（主站）/ 腾讯云 COS（国内镜像）/ GitHub Pages（仓库版）
+
+## 本地运行
 
 ```bash
 npm install
 npm run dev
-# 閹垫挸绱?http://localhost:3000
+# 打开 http://localhost:3000
 ```
 
-## 閸旂喕鍏?
-- `/` 妫ｆ牠銆夐敍姘辩暆閸樺棗鐫嶇粈鐚寸礄閸╃儤婀版穱鈩冧紖 / 娑撴挷绗熼幎鈧懗?/ 妞ゅ湱娲扮紒蹇撳坊 / 閺佹瑨鍋涢懗灞炬珯閿?- `/guestbook` 閻ｆ瑨鈻堥弶鍖＄窗鐠佸灝顓归悾娆掆枅閿涘本鏆熼幑顔肩摠 SQLite
-- `/api/guestbook` 閻ｆ瑨鈻堥幒銉ュ經閿涘湙ET 閸掓銆?/ POST 閹绘劒姘﹂敍?- `/api/visits` 鐠佸潡妫剁紒鐔活吀閹恒儱褰涢敍鍦橢T 缂佺喕顓?/ POST 鐠佹澘缍嶆稉鈧▎陇顔栭梻顕嗙礆
+## 构建命令
 
-## 閻╊喖缍嶇紒鎾寸€?
+```bash
+npm run build          # 主站完整版（含后端接口）
+npm run build:mirror   # 国内静态镜像版 -> out/
+npm run build:mirror:gh # GitHub Pages 版（/resume-site 子路径）-> out-gh/
+```
+
+## 功能
+
+- `/` 首页：简历展示（基本信息 / 专业技能 / 项目经历 / 教育背景）
+- `/guestbook` 留言板：访客留言，数据存 SQLite
+- `/api/guestbook` 留言接口（GET 列表 / POST 提交）
+- `/api/visits` 访问统计接口（GET 统计 / POST 记录一次访问）
+
+## 目录结构
+
 ```
 src/
-閳规壕鏀㈤埞鈧?app/            # 妞ょ敻娼版稉?API 鐠侯垳鏁?閳?  閳规壕鏀㈤埞鈧?page.js     # 妫ｆ牠銆夐敍鍫㈢暆閸樺棗鐫嶇粈鐚寸礆
-閳?  閳规壕鏀㈤埞鈧?guestbook/  # 閻ｆ瑨鈻堥弶鍧椼€?閳?  閳规柡鏀㈤埞鈧?api/        # 閸氬海顏幒銉ュ經
-閳规壕鏀㈤埞鈧?components/     # 缂佸嫪娆?閳规柡鏀㈤埞鈧?lib/
-    閳规壕鏀㈤埞鈧?db.js       # 閺佺増宓佹惔鎾崇殱鐟?    閳规柡鏀㈤埞鈧?resume-data.js  # 缁犫偓閸樺棗鍞寸€圭櫢绱欓弨鍦暆閸樺棙鏁兼潻娆撳櫡閿?data/resume.db      # SQLite 閺佺増宓佹惔鎿勭礄鏉╂劘顢戦弮鍓佹晸閹存劧绱濇稉宥呭弳鎼存搫绱?```
+├── app/            # 页面与 API 路由
+│   ├── page.js     # 首页（简历展示）
+│   ├── guestbook/  # 留言板页
+│   └── api/        # 后端接口
+├── components/     # 组件
+└── lib/
+    ├── db.js       # 数据库封装
+    └── resume-data.js  # 简历内容（改简历改这里）
+data/resume.db      # SQLite 数据库（运行时生成，不入库）
+```
 
-## 闂堛垼鐦崣顖濐唹閻?
-- 鐎瑰本鏆ｉ崗銊︾垽闂傤厾骞嗛敍姘缁旑垶銆夐棃?閳?閸氬海顏幒銉ュ經 閳?閺佺増宓佹惔?- 瀹搞儳鈻奸崠鏍电窗Git 閹绘劒姘︾憴鍕瘱閵嗕阜EADME閵嗕竸GENTS.md 鐟欏嫬鍨妴渚€鍎寸純鑼额嚛閺?- AI Coding 瀹搞儰缍斿ù渚婄窗閻?Codex 娴?0 閸?1 閺嬪嫬缂撻敍灞兼眽瀹搞儱顓搁弻銉ょ瑢鐠嬪啯鏆ｉ崗鎶芥暛闁槒绶?
+## 面试可讲点
 
-## 绾夸笂璁块棶
-
-馃寪 https://resume-site-ebon-six.vercel.app
-
-## 国内镜像（免 VPN）
-
-🌐 https://resume-site-1462520728.cos-website.ap-guangzhou.myqcloud.com
-
-> 由腾讯云 COS 静态托管提供，国内直连免 VPN；为静态版（简历展示 + 下载 PDF），留言板功能在主站提供。
+- 完整全栈闭环：前端页面 → 后端接口 → 数据库
+- 多环境部署：Vercel / 腾讯云 COS / GitHub Pages
+- 工程化：Git 提交规范、README、AGENTS.md 规则、部署说明
+- AI Coding 工作流：用 Codex 从 0 到 1 构建，人工审查与调整关键逻辑

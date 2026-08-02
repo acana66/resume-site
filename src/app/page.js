@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { resume, skills, projects, education } from "../lib/resume-data";
 import VisitTracker from "../components/VisitTracker";
 
@@ -23,9 +24,9 @@ export default function Home() {
           <a href={`tel:${resume.phone}`} className="border border-white/50 px-4 py-2 rounded-full hover:bg-white/10">
             {resume.phone}
           </a>
-          <a href="/resume.pdf" download className="border border-white/50 px-4 py-2 rounded-full hover:bg-white/10">
+          <Link href="/resume.pdf" download className="border border-white/50 px-4 py-2 rounded-full hover:bg-white/10">
             下载简历 PDF
-          </a>
+          </Link>
         </div>
       </section>
 

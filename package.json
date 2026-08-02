@@ -6,7 +6,8 @@
                     "dev":  "next dev",
                     "build":  "next build",
                     "start":  "next start",
-                    "build:mirror":  "node scripts/build-mirror.mjs"
+                    "build:mirror":  "node scripts/build-mirror.mjs",
+                    "build:mirror:gh":  "node scripts/build-mirror.mjs gh"
                 },
     "dependencies":  {
                          "better-sqlite3":  "^11.10.0",

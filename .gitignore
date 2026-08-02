@@ -6,6 +6,7 @@
 # next.js
 /.next/
 /out/
+/out-gh/
 
 # production
 /build
@@ -23,12 +24,11 @@ yarn-error.log*
 .env
 .env*.local
 
-# database files (本地数据不提交)
+# database files (local, not committed)
 /data/*.db
 /data/*.db-journal
 /data/*.db-wal
 /data/*.db-shm
 
 # vercel
-.vercel
 .vercel
