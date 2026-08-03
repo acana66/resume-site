@@ -10,7 +10,7 @@ export const resume = {
   phone: "15296323131",
   email: "aacanaaa@outlook.com",
   intention: "AI Coding 开发 / 网络运维 / 前端开发（实习）",
-  tags: ["网络运维", "AI Coding", "全栈开发", "扣子 Coze"],
+  tags: ["网络运维", "AI Coding", "全栈开发", "codex"],
   evaluation: [
     "技术扎实、动手能力强：能独立完成从网络搭建到前后端开发的实训任务，具备快速上手能力。",
     "学习敏锐、抗压性好：习惯通过查阅官方文档和 API 解决问题，能适应技术学习和项目开发的节奏。",
