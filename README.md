@@ -7,7 +7,7 @@
 | 入口 | 链接 | 说明 |
 |---|---|---|
 | 主站（完整版） | https://resume-site-ebon-six.vercel.app | 简历 + 留言板 + 访问统计（海外节点） |
-| 国内镜像 | https://resume-site-1462520728.cos-website.ap-guangzhou.myqcloud.com | 国内直连免 VPN，静态版 |
+| 国内直连（推荐） | https://resume-site-d7ghrz7w3b2ff6a84-1462520728.tcloudbaseapp.com | 腾讯云托管，国内免 VPN 直连，GitHub 推送自动更新 |
 | GitHub Pages | https://acana66.github.io/resume-site | 仓库托管版，静态版 |
 
 ## 技术栈
@@ -15,7 +15,7 @@
 - 前端 & 后端：Next.js（App Router，JavaScript）
 - 样式：Tailwind CSS v4
 - 数据库：better-sqlite3（本地文件型，零安装）
-- 部署：Vercel（主站）/ 腾讯云 COS（国内镜像）/ GitHub Pages（仓库版）
+- 部署：Vercel（主站）/ 腾讯云 CloudBase（国内直连，GitHub Actions 自动部署）/ GitHub Pages（仓库版）
 
 ## 本地运行
 
