@@ -1,4 +1,4 @@
-# 覃杰 · 个人简历网站（resume-site）
+#  个人简历网站（resume-site）
 
 一个用 **AI Coding 工具（Codex）** 全栈开发的作品集网站：前端简历展示 + 访客留言板 + 访问统计。
 
@@ -55,7 +55,7 @@ src/
 data/resume.db      # SQLite 数据库（运行时生成，不入库）
 ```
 
-## 面试可讲点
+
 
 - 完整全栈闭环：前端页面 → 后端接口 → 数据库
 - 多环境部署：Vercel / 腾讯云 COS / GitHub Pages
