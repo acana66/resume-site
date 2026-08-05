@@ -21,9 +21,6 @@ export default function Home() {
           <a href={`mailto:${resume.email}`} className="bg-white text-indigo-700 font-semibold px-4 py-2 rounded-full hover:bg-indigo-50">
             {resume.email}
           </a>
-          <a href={`tel:${resume.phone}`} className="border border-white/50 px-4 py-2 rounded-full hover:bg-white/10">
-            {resume.phone}
-          </a>
           <Link href="/resume.pdf" download className="border border-white/50 px-4 py-2 rounded-full hover:bg-white/10">
             下载简历 PDF
           </Link>

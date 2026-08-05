@@ -7,7 +7,6 @@ export const resume = {
   major: "计算机应用",
   degree: "大专",
   period: "2024.07 — 2027.06（预计毕业）",
-  phone: "15296323131",
   email: "aacanaaa@outlook.com",
   intention: "AI Coding 开发 / 网络运维 / 前端开发（实习）",
   tags: ["网络运维", "AI Coding", "全栈开发", "codex"],
